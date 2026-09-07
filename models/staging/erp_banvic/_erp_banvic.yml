@@ -14,3 +14,5 @@ sources:
       - name: colaboradores
         description: Tabela fonte de colaboradores
         
+      - name: agencias
+        description: Tabela fonte de agencias
