@@ -1,7 +1,7 @@
 with
     agencias as (
         select *
-        from  {{ ref('int_dimensao_agencias') }}
+        from {{ ref('int_dimensao_agencias') }}
     )
 
 select *

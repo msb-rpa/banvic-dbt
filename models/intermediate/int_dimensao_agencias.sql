@@ -1,21 +1,22 @@
-with
+with 
     agencias as (
-        select *
+        select 
+            *
         from {{ ref('stg_erp__agencias') }}
     )
 
     , localidades as (
-        select *
+        select 
+            *
         from {{ ref('stg_erp__localidades') }}
     )
 
-    , agencias_enriquecidos as (
-        select
+    , agencias_enriquecido as (
+        select 
             agencias.pk_agencia
-            , agencias.fk_localidade 
             , agencias.nome_agencia
             , agencias.endereco_agencia
-            , agencias.data_abertura_agencia 
+            , agencias.data_abertura_agencia
             , agencias.tipo_agencia
             , localidades.cidade as cidade_agencia
             , localidades.uf as uf_agencia
@@ -23,5 +24,5 @@ with
         left join localidades on agencias.fk_localidade = localidades.pk_localidade
     )
 
-    select *
-    from agencias_enriquecidos
+select *
+from agencias_enriquecido
