@@ -1,7 +1,9 @@
+
 with 
-    agencias as (
+    fonte_agencias as (
         select 
             *
+
         from {{ source('erp', 'agencias') }}
     )
 
@@ -13,8 +15,11 @@ with
             , endereco as endereco_agencia            
             , cast(data_abertura as date) as data_abertura_agencia
             , tipo_agencia
-        from agencias
+
+        from fonte_agencias
     )
 
-select *
+select 
+    *
+
 from renomeado

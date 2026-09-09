@@ -1,12 +1,13 @@
+
 with
-    colaboradores as (
+    fonte_colaboradores as (
         select 
             * 
         
         from {{ source("erp", "colaboradores") }}
-    ),
+    )
 
-    renomeado as (
+    , renomeado as (
         select
             cod_colaborador as pk_colaborador
             , cod_localidade as fk_localidade
@@ -18,8 +19,10 @@ with
             , regexp_replace(cep,'[^a-zA-Z0-9]','') as cep_colaborador
             , cod_gerente as cod_gerente_colaborador
 
-        from colaboradores
+        from fonte_colaboradores
     )
 
-select *
+select 
+    *
+    
 from renomeado
